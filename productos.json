@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "nombre": "empanada carne",
+    "precio": 330,
+    "thumbnail": "url",
+    "id": 3
+  }
+]

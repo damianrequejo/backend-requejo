@@ -19,7 +19,8 @@ async function ejecutar(){
         thumbnail:"url"
     }
 
-    await productos.deleteById(2).then(id=>console.log(id))
+    await productos.deleteById(4).then(id=>console.log(id))
+    //await productos.save(objeto3)
     
 }
 ejecutar()

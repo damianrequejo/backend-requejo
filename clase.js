@@ -1,5 +1,4 @@
 const fs=require("fs").promises
-
 class Contenedor {
     constructor(path){
         this.path=path
@@ -45,16 +44,20 @@ class Contenedor {
 
     async deleteById(id){
         try {
-            const leer=await fs.readFile(this.path,"utf-8");
-            const data= JSON.parse(leer)
-            const obj= data.find(obj=>obj.id == id)
-            if(!obj){
+            const leer = await fs.readFile(this.path, "utf-8")
+            const data = JSON.parse(leer)
+            const obj = data.filter (obj => obj.id !== id) 
+            
+            if (!obj) {
                 return null
             }
-            //borro elemento
 
-        } catch(e){
-            console.log(e)
+            data.push(obj)
+            await fs.writeFile(this.path, JSON.stringify(obj, null, 2), "utf-8")
+            return obj         
+
+        } catch (error) {
+            console.log(error)
         }
     }
 
